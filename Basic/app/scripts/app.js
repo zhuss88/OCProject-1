@@ -34,8 +34,13 @@ angular
     'chart.js'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("home");
+    $urlRouterProvider.otherwise("homeIndex");
     $stateProvider
+      .state('homeIndex', {
+        url:"/",
+        templateUrl: 'views/homeIndex.html',
+        controller: 'HomeCtrl'
+      })
       .state('home', {
         url:"/",
         templateUrl: 'views/main.html',
