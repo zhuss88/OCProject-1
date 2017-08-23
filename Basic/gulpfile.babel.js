@@ -86,7 +86,7 @@ gulp.task('lint:serverScripts', function () {
 });
 
 gulp.task('start:client', ['start:server'], function () {
-    openURL("http://localhost:8000","chrome");
+    openURL("http://localhost:8000/#/","chrome");
 });
 
 gulp.task('start:server', ['styles', 'es6:frontend', 'es6:server', 'bower'], function(cb) {

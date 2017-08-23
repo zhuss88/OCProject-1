@@ -32,45 +32,34 @@ angular
     'ui.bootstrap.datetimepicker',
     'angularMoment',
     'chart.js',
-    // 'ui.router.state.events',
+    'ui.router.state.events',
     'basic.router'
     // 'basic.resource',
     // 'basic.services',
     // 'basic.controller',
     // 'basic.filter'
   ])
-  // .config(function ($stateProvider, $urlRouterProvider) {
-  //   $urlRouterProvider.otherwise("/");
-  //   $stateProvider
-  //     .state('homeIndex', {
-  //       url:"/",
-  //       templateUrl: 'views/homeIndex.html',
-  //       controller: 'HomeCtrl'
-  //     })
-  //     .state('login', {
-  //       url:"/login",
-  //       templateUrl: 'views/login.html',
-  //       controller: 'loginCtrl'
-  //     })
+  .config(['$translateProvider', '$windowProvider', function ($translateProvider, $windowProvider) {
+    let window = $windowProvider.$get();
+    let lang = window.navigator.userLanguage || window.navigator.language;
+    console.log('lang', lang);
+    if (lang) {
+      lang = lang.substr(0, 2);
+      $translateProvider.preferredLanguage(lang);
+    }
+  }])
+
+  .run(['$rootScope', '$state',
+  function ($rootScope, $state) {
+
+   
+    // 路由跳转
+    $rootScope.$on('$stateChangeStart', function (event, toState) {
+      console.log('toState', toState.name);
+      $rootScope.tab = toState.name;
      
-  //     .state('dashboard', {
-  //       url:"/dashboard",
-  //       templateUrl: 'views/dashboard.html',
-  //       controller: 'DashboardCtrl'
-  //     })
-  //     .state('dataModel', {
-  //       url:"/dataModel",
-  //       templateUrl: 'views/dataModel.html',
-  //       controller: 'DataModelCtrl'
-  //     })
-  //     .state('operation', {
-  //       url:"/operation",
-  //       templateUrl: 'views/operation.html',
-  //       controller: 'OperationCtrl'
-  //     })
-  //     .state('setting', {
-  //       url:"/setting",
-  //       templateUrl: 'views/main.html',
-  //       controller: 'SettingCtrl'
-  //     });
-  // });
+    });
+
+
+  
+  }]);
