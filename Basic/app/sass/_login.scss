@@ -26,7 +26,7 @@
       text-align: center;
     }
     .login-con{
-      div.login_forget{font-size:14px;width:100px;cursor:pointer!important;}
+      div.login_forget{font-size:14px;width:200px;cursor:pointer!important;}
       .login_forget.active .no-me{
         background:url("../images/check_active.png") no-repeat;
       }
@@ -94,12 +94,5 @@
 .active .no-me{
   background:url("../images/check_active.png") no-repeat;
 }
-
-
-
-// .yes-me{
-//   background:url("../images/images_19.png") no-repeat;
-// }
-// .no-me{
-//   background:url("../images/images_18.png") no-repeat;
-// }
+.titleLogin{cursor:pointer;}
+.reg_block{margin-top:10px;}

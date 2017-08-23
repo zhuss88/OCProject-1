@@ -1,29 +1,35 @@
 <div class="login">
   <form name="frm">
     <div class="login-wrop">
-      <div class="login-title">账户登录</div>
+      <div class="login-title">{{loginaccount | translate}}</div>
       <div class="login-con mgt">
         <div class="row prompt mgt">
-          <div class="col-md-6 text-l">用户名</div>
+          <div class="col-md-6 text-l">{{loginname | translate}}</div>
           <div class="col-md-6 text-r err-text" ng-if="frm.username.$dirty && frm.username.$invalid">
-            <img src="../images/tip.png" alt="" class="err-img">用户名不能为空
+            <img src="../images/tip.png" alt="" class="err-img">{{loginnameblank | translate}}
           </div>
         </div>
-        <div><input ng-model="usermessage.username" name="username" type="text" class="login-input mgt" autocomplete="off" tabindex="1"  required></div>
+        <div><input ng-model="usermessage.username" name="username" type="text" class="login-input mgt" autocomplete="off" tabindex="1"
+            required></div>
         <div class="row prompt mgt">
-          <div class="col-md-6 text-l">密码</div>
-          <div class="col-md-6 text-r err-text" ng-if="frm.password.$dirty && frm.password.$invalid" >
-            <img src="../images/tip.png" alt="" class="err-img">密码不能为空
+          <div class="col-md-6 text-l">{{loginpass | translate}}</div>
+          <div class="col-md-6 text-r err-text" ng-if="frm.password.$dirty && frm.password.$invalid">
+            <img src="../images/tip.png" alt="" class="err-img">{{loginpassblank | translate}}
           </div>
         </div>
-        <div><input ng-model="usermessage.password" name="password" type="password" class="login-input mgt" autocomplete="off" tabindex="2" required></div>
+        <div><input ng-model="usermessage.password" name="password" type="password" class="login-input mgt" autocomplete="off"
+            tabindex="2" ng-keydown="enterLogin($event)" required></div>
         <div class="row prompt mgt">
-        <div class="login_forget"  ng-class="{'active': isForget}" ng-click="isForget=!isForget">
-          <i class="ta-cd no-me"></i><p>记住用户名</p>
+          <div class="login_forget" ng-class="{'active': isForget}" ng-click="isForget=!isForget">
+            <i class="ta-cd no-me"></i>
+            <p>{{loginfoget | translate}}</p>
+          </div>
         </div>
-      </div>
-        <button class="login-btn mgt" ng-click="frm.$valid && gologin()">登录</button>
+        <button class="login-btn mgt" ng-click="frm.$valid && gologin()">{{loginbtn | translate}}</button>
+        <div class="reg_block">
+          <span class="titleText">{{noaccount | translate}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="titleLogin"  ng-click="register()" >{{loginreg | translate}}</span></span>
+        </div>
       </div>
     </div>
-    </form>
+  </form>
 </div>
