@@ -86,20 +86,23 @@
                            ng-model="code" required/>
                     <div ng-click="changecode()" class="code">{{yzcode}}</div>
                 </div>
-          </div>              
+          </div>   
+          
+          
+          <div class='textConfirm'>
+            <div class="confirm_set" ng-class="{'active': xieyi}" ng-click="xieyi=!xieyi">
+              <i class="ta-cd no-me"></i>&nbsp;&nbsp;我已阅读并接受《Aura服务协议》
+            </div>
+          </div>
 
 
           <button class="btn btn-block btn-disabled" id="regist" ng-disabled="regfrm.$invalid"
-          ng-class="{'btn-orange':!credentials.codeerror&&usermessage.password === usermessage.cfmPassword&&regfrm.$valid, 'btn-disabled': credentials.codeerror&&!xieyi&&usermessage.password !== usermessage.cfmPassword||regfrm.$invalid}"
+          ng-class="{'btn-orange':!credentials.codeerror&&usermessage.password === usermessage.cfmPassword&&regfrm.$valid,
+           'btn-disabled': credentials.codeerror||!xieyi||usermessage.password !== usermessage.cfmPassword||regfrm.$invalid}"
           ng-click="!credentials.codeerror&&usermessage.password === usermessage.cfmPassword&&frm.$valid && regist()"
           style="margin: 20px 0 0 0;">
       注册
   </button>
-         
-         
-
-
-         
 
         </div>
         </form>
